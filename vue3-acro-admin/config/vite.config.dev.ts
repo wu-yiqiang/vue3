@@ -6,7 +6,19 @@ export default mergeConfig(
   {
     mode: 'development',
     server: {
-      open: true,
+      // 是否开启 https
+      // https: true,
+      hmr: true,
+      // 端口号
+      port: 3002,
+      host: '0.0.0.0',
+      // 本地跨域代理
+      proxy: {
+        // '/api/v1': {
+        //   target: VITE_APP_BASE_API,
+        //   changeOrigin: true
+        // }
+      },
       fs: {
         strict: true,
       },
