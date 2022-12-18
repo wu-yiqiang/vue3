@@ -32,7 +32,7 @@
             },
 
             additionalModules: [
-                propertiesPanelModule,
+                propertiesPanelModule
                 // propertiesProviderModule
                 // customControlsModule
                 // customTranslateModule

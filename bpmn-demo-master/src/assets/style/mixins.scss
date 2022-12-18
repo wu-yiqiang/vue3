@@ -1,0 +1,7 @@
+/* 盒子居中 */
+@mixin box-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

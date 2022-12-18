@@ -6,7 +6,6 @@ export default function customTranslate(template, replacements) {
   // Translate
   
   template = translations[template] || template;
-  console.log('asd', template);
   // Replace
   // return template.replace(/{([^}]+)}/g, function (_, key) {
   //   var str = replacements[key];

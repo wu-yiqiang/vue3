@@ -32,6 +32,14 @@ module.exports = {
       }
     }
   },
+  css: {
+    loaderOptions: {
+      // variable.scss 文件放在src/assets/style/variable.scss ,里面是一些要用到的全局变量，
+      sass: {
+        prependData: `@import '@/assets/style/index.scss';`
+      }
+    }
+  },
   chainWebpack(config) {
     config.plugin('preload').tap(() => [
       {

@@ -13,6 +13,8 @@ import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-codes.css';
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
 // panel样式文件
 import 'bpmn-js-properties-panel/dist/assets/bpmn-js-properties-panel.css';
+// 绯红主题
+import '@/assets/styles/bpmn-properties-theme-blue.css';
 // 创建vue实例
 const app = createApp(App);
 app.use(ElementPlus);
