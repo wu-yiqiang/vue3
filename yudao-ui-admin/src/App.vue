@@ -7,7 +7,7 @@
 <script>
 
 export default {
-  name: "App",
+  name: 'App',
   components: { },
   metaInfo() {
     return {
@@ -17,7 +17,7 @@ export default {
       }
     }
   }
-};
+}
 </script>
 <style scoped>
 #app .theme-picker {

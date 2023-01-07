@@ -1,5 +1,5 @@
-import {login, logout, getInfo, socialLogin, smsLogin} from '@/api/login'
-import {setToken, removeToken} from '@/utils/auth'
+import { login, logout, getInfo, socialLogin, smsLogin } from '@/api/login'
+import { setToken, removeToken } from '@/utils/auth'
 
 const user = {
   state: {
@@ -42,7 +42,7 @@ const user = {
       const socialType = userInfo.socialType
       return new Promise((resolve, reject) => {
         login(username, password, captchaVerification, socialType, socialCode, socialState).then(res => {
-          res = res.data;
+          res = res.data
           // 设置 token
           setToken(res)
           resolve()
@@ -59,7 +59,7 @@ const user = {
       const type = userInfo.type
       return new Promise((resolve, reject) => {
         socialLogin(type, code, state).then(res => {
-          res = res.data;
+          res = res.data
           // 设置 token
           setToken(res)
           resolve()
@@ -74,8 +74,8 @@ const user = {
       const mobile = userInfo.mobile.trim()
       const mobileCode = userInfo.mobileCode
       return new Promise((resolve, reject) => {
-        smsLogin(mobile,mobileCode).then(res => {
-          res = res.data;
+        smsLogin(mobile, mobileCode).then(res => {
+          res = res.data
           // 设置 token
           setToken(res)
           resolve()
@@ -103,9 +103,9 @@ const user = {
             }
           }
 
-          res = res.data; // 读取 data 数据
+          res = res.data // 读取 data 数据
           const user = res.user
-          const avatar = ( user.avatar === "" || user.avatar == null ) ? require("@/assets/images/profile.jpg") : user.avatar;
+          const avatar = (user.avatar === '' || user.avatar == null) ? require('@/assets/images/profile.jpg') : user.avatar
           if (res.roles && res.roles.length > 0) { // 验证返回的roles是否是一个非空数组
             commit('SET_ROLES', res.roles)
             commit('SET_PERMISSIONS', res.permissions)

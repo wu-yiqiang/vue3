@@ -10,12 +10,12 @@
  * @Donate: https://huzhushan.gitee.io/vue3-element-admin/donate/
  */
 // login.js
-const Login = () => import('@/views/login/index.vue')
+// const Login = () => import('@/views/login/index.vue')
 
-export default [
-  {
-    path: '/login',
-    name: 'login',
-    component: Login,
-  },
-]
+// export default [
+//   {
+//     path: '/login',
+//     name: 'login',
+//     component: Login,
+//   },
+// ]
