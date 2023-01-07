@@ -52,7 +52,7 @@ export default {
         simulation: true,
         labelEditing: false,
         labelVisible: false,
-        prefix: 'flowable',
+        prefix: 'activiti',
         headerButtonSize: 'mini',
         additionalModel: [CustomContentPadProvider, CustomPaletteProvider]
       },

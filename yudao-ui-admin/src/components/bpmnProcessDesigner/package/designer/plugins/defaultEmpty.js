@@ -1,5 +1,5 @@
 export default (key, name, type) => {
-  if (!type) type = "camunda";
+  if (!type) type = "activiti";
   const TYPE_TARGET = {
     activiti: "http://activiti.org/bpmn",
     camunda: "http://bpmn.io/schema/bpmn",
