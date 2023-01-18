@@ -3,6 +3,10 @@
     "target": "ES2020",
     "module": "ES2020",
     "moduleResolution": "node",
+    /* 声明是否需要在保存时候自动触发 tsc 编译的字段，
+    一般来说，我们的代码编译过程会通过 Rollup、Webpack 等打包构建工具，
+    并且使用热更新，因此无需配置该项，保持缺省即可。 */
+    "compileOnSave": true,
     "strict": true,
     "jsx": "preserve",
     "sourceMap": true,
@@ -15,6 +19,8 @@
     "lib": ["es2020", "dom"],
     "skipLibCheck": true
   },
+  /* 字段用于指明需要被 tsc 编译的文件或文件夹列表 */
   "include": ["src/**/*", "src/**/*.vue"],
+  /* 用于排除不需要 tsc 编译的文件或文件夹列表 */
   "exclude": ["node_modules"]
 }
