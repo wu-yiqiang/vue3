@@ -19,16 +19,24 @@
         </a-space>
       </div>
     </div>
+    <Guide :selectors="selectorLists" />
   </div>
 </template>
 
 <script lang="ts" setup>
+  import Guide from '@/components/guide/index.vue';
+  // import { reactive } from 'vue';
   import ChatPanel from './components/chat-panel.vue';
   import Studio from './components/studio.vue';
   import DataStatistic from './components/data-statistic.vue';
   import StudioStatus from './components/studio-status.vue';
   import QuickOperation from './components/quick-operation.vue';
   import StudioInformation from './components/studio-information.vue';
+  import selectors from './utils';
+
+  const selectorLists: any = selectors;
+  // selectorLists = selectors
+  // console.log('asd', selectorLists)
 </script>
 
 <script lang="ts">
@@ -65,6 +73,7 @@
   @media (max-width: @screen-lg) {
     .layout {
       flex-wrap: wrap;
+
       &-left-side {
         flex: 1;
         flex-basis: 100%;

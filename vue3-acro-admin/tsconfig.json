@@ -17,7 +17,9 @@
       "@/*": ["src/*"]
     },
     "lib": ["es2020", "dom"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    // 允许js
+    "allowJs": true
   },
   /* 字段用于指明需要被 tsc 编译的文件或文件夹列表 */
   "include": ["src/**/*", "src/**/*.vue"],

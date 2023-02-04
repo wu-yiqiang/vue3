@@ -25,5 +25,6 @@ module.exports = {
         ignorePseudoClasses: ['deep'],
       },
     ],
+    "no-console": "off"
   },
 };

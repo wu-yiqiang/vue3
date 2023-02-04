@@ -22,7 +22,12 @@
     <ul class="right-side">
       <li>
         <a-tooltip :content="$t('settings.search')">
-          <a-button class="nav-btn" type="outline" :shape="'circle'">
+          <a-button
+            id="right-search"
+            class="nav-btn"
+            type="outline"
+            :shape="'circle'"
+          >
             <template #icon>
               <icon-search />
             </template>
@@ -32,6 +37,7 @@
       <li>
         <a-tooltip :content="$t('settings.language')">
           <a-button
+            id="right-language"
             class="nav-btn"
             type="outline"
             :shape="'circle'"
@@ -64,6 +70,7 @@
           "
         >
           <a-button
+            id="right-mode"
             class="nav-btn"
             type="outline"
             :shape="'circle'"
@@ -81,6 +88,7 @@
           <div class="message-box-trigger">
             <a-badge :count="9" dot>
               <a-button
+                id="right-fullDisplay"
                 class="nav-btn"
                 type="outline"
                 :shape="'circle'"
@@ -273,9 +281,11 @@
     display: flex;
     padding-right: 20px;
     list-style: none;
+
     :deep(.locale-select) {
       border-radius: 20px;
     }
+
     li {
       display: flex;
       align-items: center;
@@ -286,16 +296,19 @@
       color: var(--color-text-1);
       text-decoration: none;
     }
+
     .nav-btn {
       border-color: rgb(var(--gray-2));
       color: rgb(var(--gray-8));
       font-size: 16px;
     }
+
     .trigger-btn,
     .ref-btn {
       position: absolute;
       bottom: 14px;
     }
+
     .trigger-btn {
       margin-left: 14px;
     }
