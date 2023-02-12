@@ -3,9 +3,10 @@ import vue from '@vitejs/plugin-vue'
 import svgLoader from 'vite-svg-loader'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import styleImport, { VantResolve } from 'vite-plugin-style-import'
+import eslintPlugin from 'vite-plugin-eslint'
 import { resolve } from 'path'
 
-import eslintPlugin from 'vite-plugin-eslint'
+
 // 路径查找
 const pathResolve = (dir: string): string => {
   return resolve(__dirname, '.', dir)
