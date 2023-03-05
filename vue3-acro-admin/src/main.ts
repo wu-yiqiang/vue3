@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import ArcoVue from '@arco-design/web-vue';
 import ArcoVueIcon from '@arco-design/web-vue/es/icon';
 import globalComponents from '@/components';
+import { Updater } from '@/utils/Updater';
 import router from './router';
 import store from './store';
 import i18n from './locale';
@@ -12,6 +13,19 @@ import '@arco-design/web-vue/dist/arco.css';
 import '@/assets/style/global.less';
 import '@/api/interceptor';
 
+// const up = new Updater({
+//   timer: 2000,
+// });
+// // 未更新通知
+// up.on('no-update', () => {
+//   // eslint-disable-next-line no-console
+//   console.log('未更新');
+// });
+// // 更新通知
+// up.on('update', () => {
+//   // eslint-disable-next-line no-alert
+//   alert('文件更新');
+// });
 const app = createApp(App);
 
 app.use(ArcoVue, {});
