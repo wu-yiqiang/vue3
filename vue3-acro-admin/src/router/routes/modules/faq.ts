@@ -28,7 +28,7 @@ const FAQ: AppRouteRecordRaw = {
     {
       path: 'onineChat',
       name: 'onineChat',
-      component: () =>  import ('@/views/faq/chat/index.vue'),
+      component: () => import('@/views/faq/chat/index.vue'),
       meta: {
         locale: 'menu.list.searchTable',
         requiresAuth: true,

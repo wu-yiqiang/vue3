@@ -3,8 +3,20 @@
     <div v-if="show" ref="guideModalRef" class="guide-modal">
       <div ref="guideBoxRef" class="guide-box">
         <div>{{ message }}</div>
-        <a-button class="btn" :disabled="index === 0" type='primary' @click="changeStep(true)" >上一步</a-button>
-        <a-button class="btn" :disabled="index === 3" type='primary' @click="changeStep(false)" >下一步</a-button>
+        <a-button
+          class="btn"
+          :disabled="index === 0"
+          type="primary"
+          @click="changeStep(true)"
+          >上一步</a-button
+        >
+        <a-button
+          class="btn"
+          :disabled="index === 3"
+          type="primary"
+          @click="changeStep(false)"
+          >下一步</a-button
+        >
         <icon-close-circle-fill class="class-box" @click="close" />
       </div>
     </div>

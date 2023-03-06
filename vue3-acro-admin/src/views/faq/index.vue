@@ -1,8 +1,11 @@
 <template>
-  <section class="faq">洒大地萨达萨达萨达萨达阿萨德大大声</section>
+  <section class="index"> vue3模板 </section>
 </template>
-<script setup lang="ts">
+
+<script lang="ts" setup>
+  import { reactive, watch, computed, ref } from 'vue';
 </script>
-<style lang="less" scoped>
-//.faq{}
+
+<style lang="scss" scoped>
+  //.index{}
 </style>

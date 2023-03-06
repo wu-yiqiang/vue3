@@ -12,7 +12,8 @@
     "preview": "npm run build && vite preview --host",
     "type:check": "vue-tsc --noEmit --skipLibCheck",
     "lint-staged": "npx lint-staged",
-    "lint": "eslint --fix --ext .js,.vue,.ts src"
+    "lint": "eslint --fix --ext .js,.vue,.ts src",
+    "fix": "eslint src/**/*.* --fix"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx}": [
