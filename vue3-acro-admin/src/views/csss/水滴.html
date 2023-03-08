@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>【每日一练】106—CSS实现一款圆形水滴卡片UI的效果</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    *
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body 
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #fedaes;
+}
+.container
+{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 60px;
+  padding: 50px 0;
+}
+.container .drop 
+{
+  position: relative;
+  width: 350px;
+  height: 350px;
+  box-shadow: inset 20px 20px 20px rgba(0,0,0,0.05),
+  25px 35px 20px rgba(0,0,0,0.05),
+  25px 30px 30px rgba(0,0,0,0.05),
+  inset -20px -20px 25px rgba(255,255,255,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+.container .drop:nth-child(1)
+{
+  border-radius: 50% ;
+}
+.container .drop:nth-child(2)
+{
+  border-radius: 50% ;
+}
+.container .drop:nth-child(3)
+{
+  border-radius: 50%;
+}
+.container .drop:hover 
+{
+  border-radius: 10%;
+}
+.container .drop::before 
+{
+  content: '';
+  position: absolute;
+  top: 50px;
+  left: 85px;
+  background: #fffd;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+.drop::after
+{
+  content: '';
+  position: absolute;
+  top: 90px;
+  left: 110px;
+  background: #fffd;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+.content
+{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 40px;
+  gap: 15px;
+}
+.content h2 
+{
+  position: relative;
+  width: 80px;
+  height: 80px;
+  font-size: 2em;
+  border-radius: 50%;
+  display: flex;
+  background: #eff0f4;
+  justify-content: center;
+  align-items: center;
+  color: var(--clr);
+  box-shadow: inset 2px 5px 10px rgba(0,0,0,0.1),inset -2px -5px 10px rgba(255,255,255,1),
+  15px 15px 10px rgba(0,0,0,0.05),
+  15px 10px 15px rgba(0,0,0,0.025);
+}
+.content a 
+{
+  position: relative;
+  padding: 10px 25px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  background: var(--clr);
+  border-radius: 25px;
+  text-shadow: 0 2px 2px rgba(0,0,0,0.25);
+  opacity: 0.75;
+  transition: 0.5s;
+}
+.content a:hover 
+{
+  opacity: 1;
+}
+.content a::before 
+{
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  height: 5px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 5px;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="drop" style="--clr:#07a9b1;">
+      <div class="content">
+        <h2>01</h2>
+        <p>人生所有往上的路，都与我们本能的懒惰、懈怠和拖延不相容。当你觉得很苦很累时，千万不要泄气，因为你可能正走在上坡的路上。</p>
+        <a href="http://www.webqdkf.com" target="_blank">阅读更多</a>
+      </div>
+    </div>
+    <div class="drop" style="--clr:#07a9b1;">
+      <div class="content">
+        <h2>02</h2>
+        <p>“盛年不重来，一日难再晨。及时当勉励，岁月不待人。”时间，是这个世上最公平的东西，也是唯一消耗不起的东西，你的时间花在哪儿，人生的花就开在哪儿。</p>
+        <a href="http://www.webqdkf.com" target="_blank">阅读更多</a>
+      </div>
+    </div>
+    <div class="drop" style="--clr:#07a9b1;">
+      <div class="content">
+        <h2>03</h2>
+        <p>我们许多人总是半途而废。也许是读过几页书、练过几回字、写过几篇文章，可是只要看不到想要的成绩，就匆忙选择了放弃，你总怪努力没有用，其实是你不够坚持才没用。</p>
+        <a href="http://www.webqdkf.com" target="_blank">阅读更多</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

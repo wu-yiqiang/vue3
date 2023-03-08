@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【每日一练】56—CSS实现一款实用的响应式卡片悬停效果</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    *
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.container
+{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card
+{
+  position: relative;
+  width: 600px;
+  height: 350px;
+  margin: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: linear-gradient(45deg, #1a2f3f, #7094ce);
+  transition: 0.5s;
+}
+.card img
+{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 400px;
+  transition: 0.5s;
+}
+.card:hover img
+{
+  left: 73%;
+  height: 500px;
+}
+.content
+{
+  position: relative;
+  width: 50%;
+  left: 20%;
+  padding: 20px 20px 20px 40px;
+  opacity: 0;
+  transition: 0.5s;
+  visibility: hidden;
+}
+.card:hover .content
+{
+  transition-delay: 0.5s;
+  opacity: 1;
+  visibility: visible;
+  left: 0;
+}
+.content h2
+{
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 2.2em;
+  line-height: 1em;
+}
+.content p
+{
+  color: #fff;
+}
+.content a
+{
+  position: relative;
+  color: #fff;
+  padding: 10px 20px;
+  background: #fff;
+  color: #111;
+  font-weight: 700;
+  margin-top: 10px;
+  display: inline-block;
+  text-decoration: none;
+}
+@media (max-width: 991px)
+{
+  .card
+  {
+    width: auto;
+    max-width: 600px;
+    align-items: flex-start;
+  }
+  .card:hover
+  {
+    height: 600px;
+  }
+  .card:hover img
+  {
+    left: 50%;
+    height: 350px;
+  }
+  .card .content
+  {
+    width: 100%;
+    left: 0;
+    padding: 40px;
+  }
+}
+@media (max-width: 768px)
+{
+  .container
+  {
+    flex-direction: column;
+  }
+  .container .card
+  {
+    margin: 40px 20px;
+  }
+}
+@media (max-width: 420px)
+{
+  .card .content
+  {
+    padding: 30px;
+  }
+  .card:hover img
+  {
+    height: 300px;
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="content">
+        <h2>内森·德雷克</h2>
+        <p>他是一个无赖的探险家，他永远被冒险、财富和荣耀的不可抗拒的承诺所吸引。</p>
+        <a href="http://www.webqdkf.com">了解更多</a>
+      </div>
+      <img src="./images/01.png">
+    </div>
+    <div class="card">
+      <div class="content">
+        <h2>山姆·德雷克</h2>
+        <p>他是一个无赖的探险家，他永远被冒险、财富和荣耀的不可抗拒的承诺所吸引。</p>
+        <a href="http://www.webqdkf.com">了解更多</a>
+      </div>
+      <img src="./images/02.png">
+    </div>
+  </div>
+</body>
+</html>

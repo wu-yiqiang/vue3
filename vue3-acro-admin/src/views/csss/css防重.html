@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    button{
+  animation: throttle 2s step-end forwards;
+}
+button:active{
+  animation: none;
+}
+@keyframes throttle {
+  from {
+    pointer-events: none;
+  }
+  to {
+    pointer-events: all;
+  }
+}
+  </style>
+</head>
+<body>
+  <button onclick="console.log('保存')">baocun1</button>
+</body>
+</html>

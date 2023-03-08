@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>【每日一练】48—围绕地球旋转的文本动画效果</title>
+  </head>
+  <style>
+    *
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+body
+{
+  background: url(bg.jpg);
+  background-size: cover;
+  overflow: hidden;
+}
+section
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+    transform-style: preserve-3d;
+}
+.circle
+{
+  animation: animate 10s linear infinite;
+    transform-style: preserve-3d;
+}
+.circle span
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #35146f;
+    padding: 5px 11px;
+    font-size: 3em;
+    background: #fff;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    border-top: 4px solid #35146f;
+    border-bottom: 4px solid #35146f;
+    transform: rotateY(calc(var(--i) * calc(360deg / 31))) translateZ(200px);
+}
+@keyframes animate
+{
+  0%
+  {
+    transform: perspective(1000px) rotateY(360deg) rotateX(15deg) translateY(-30px);
+  }
+  100%
+  {
+    transform: perspective(1000px) rotateY(0deg) rotateX(15deg) translateY(-30px);
+  }
+}
+.earth
+{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+    background: url(image.jpg);
+    background-size: cover;
+    background-repeat: repeat-x;
+    box-shadow: inset 0 0 20px rgba(0,0,0,1), 0 0 50px #4069ff;
+    animation: animateEarth 15s linear infinite;
+}
+@keyframes animateEarth
+{
+    0%
+    {
+        background-position: 0 0;
+    }
+    100%
+    {
+        background-position: -750px 0;
+    }
+}
+
+
+.circle span:before
+{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  transform: translateZ(-5px);
+}
+  </style>
+  <body>
+    <section>
+      <div class="earth"></div>
+      <div class="circle" data-splitting>
+        <span style="--i:0;">地</span>
+        <span style="--i:1;">球</span>
+        <span style="--i:2;">是</span>
+        <span style="--i:3;">人</span>
+        <span style="--i:4;">类</span>
+        <span style="--i:5;">的</span>
+        <span style="--i:6;">母</span>
+        <span style="--i:7;">亲</span>
+        <span style="--i:8;">,</span>
+        <span style="--i:9;">请</span>
+        <span style="--i:10;">认</span>
+        <span style="--i:11;">真</span>
+        <span style="--i:12;">爱</span>
+        <span style="--i:13;">护</span>
+        <span style="--i:14;">我</span>
+        <span style="--i:15;">们</span>
+        <span style="--i:16;">自</span>
+        <span style="--i:17;">己</span>
+        <span style="--i:18;">的</span>
+        <span style="--i:19;">母</span>
+        <span style="--i:20;">亲</span>
+        <span style="--i:21;">,</span>
+        <span style="--i:22;">就</span>
+        <span style="--i:23;">像</span>
+        <span style="--i:24;">爱</span>
+        <span style="--i:25;">自</span>
+        <span style="--i:26;">己</span>
+        <span style="--i:27;">的</span>
+        <span style="--i:28;">妈</span>
+        <span style="--i:29;">妈</span>
+        <span style="--i:30;">。</span>
+      </div>
+    </section>
+  </body>
+</html>
