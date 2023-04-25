@@ -1,5 +1,5 @@
 <template>
-  <div class="container"> sdad </div>
+  <div class="container"> sdawssad </div>
 </template>
 
 <script lang="ts" setup>
@@ -7,19 +7,19 @@
   import { onMounted } from 'vue';
   
   onMounted(() => {
-    // const binTree = new BinaryTree(77, '阿达');
-    // binTree.createBinaryTree(89, '让他');
-    // binTree.createBinaryTree(34, '摄氏度');
-    // binTree.createBinaryTree(14, '看看i');
-    // binTree.createBinaryTree(56, '乱来');
-    // binTree.createBinaryTree(54, '暗示');
-    // binTree.createBinaryTree(58, 'sdd法');
-    // binTree.createBinaryTree(80, 'jkkk');
-    // binTree.createBinaryTree(85, 'ooo');
-    // binTree.createBinaryTree(78, 'ppp');
-    // binTree.createBinaryTree(99, '就');
-    // binTree.createBinaryTree(2, '多福多寿方式');
-    // console.log(binTree.removeNode(34));
+    const binTree = new BinaryTree(77, '阿达');
+    binTree.createBinaryTree(89, '让他');
+    binTree.createBinaryTree(34, '摄氏度');
+    binTree.createBinaryTree(14, '看看i');
+    binTree.createBinaryTree(56, '乱来');
+    binTree.createBinaryTree(54, '暗示');
+    binTree.createBinaryTree(58, 'sdd法');
+    binTree.createBinaryTree(80, 'jkkk');
+    binTree.createBinaryTree(85, 'ooo');
+    binTree.createBinaryTree(78, 'ppp');
+    binTree.createBinaryTree(99, '就');
+    binTree.createBinaryTree(2, '多福多寿方式');
+    console.log(binTree.removeTreeNode(34));
   });
 </script>
 

@@ -41,8 +41,8 @@
 <script>
   import { ref, reactive, onMounted } from 'vue';
   // import { getFriend } from '@/api/getData';
-  import PersonCard from '@/components/PersonCard.vue';
-  import ChatWindow from './chatwindow.vue';
+  // import PersonCard from '@/components/PersonCard.vue';
+  // import ChatWindow from './chatwindow.vue';
 
   const pcCurrent = ref('');
   let personList = reactive([]);

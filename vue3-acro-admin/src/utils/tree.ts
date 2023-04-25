@@ -43,7 +43,7 @@ export class BinaryTree {
     return this.searchLeftChild(biNode)?.data;
   }
 
-  /* 搜索右子树 */
+  /* 搜索左子树 */
   private searchLeftChild(node: Node): any {
     if (node.leftChild) return this.searchLeftChild(node.leftChild);
     if (!node.leftChild) return node;
@@ -103,40 +103,39 @@ export class BinaryTree {
   }
 
   /* 删除一个节点 */
-  public removeNode(n: number) {
+  public removeTreeNode(n: number) {
     const biNode = this.root;
+    return this.removeNode(biNode, n);
+  }
+  /* 查找二叉树中最小的结点 */
+  private removeNode(biNode: Node, n: number) {
     let node = this.traverseLeftRightChildrenTree(biNode, n);
     const parentNode = this.searchParentNode(n);
     if (node?.key) {
       // 当要删除的节点为叶子节点
       if (!node?.rightChild && !node?.leftChild) {
-        if (parentNode.key <= n) parentNode.rightChild = null
+        if (parentNode.key <= n) parentNode.rightChild = null;
         if (parentNode.key >= n) parentNode.leftChild = null;
       }
       // 只有左边子树
       if (node?.leftChild && !node?.rightChild) {
-        parentNode.leftChild = node.leftChild
+        parentNode.leftChild = node.leftChild;
       }
       // 只有右边子树
       if (!node?.leftChild && node?.rightChild) {
-         parentNode.rightChild = node.rightChild;
+        parentNode.rightChild = node.rightChild;
       }
       // 左右子树都存在
       if (node?.leftChild && node?.rightChild) {
         //  判断删除的数据是在父节点的左边还是右边
-
+        console.log('asda', node.key)
         // let isleft = false
         // if (parentNode?.leftChild?.key === node.key) isleft = true
-       
+
         const aux = this.searchLeftChild(node.rightChild);
         node.key = aux.key;
-        node.rightChild = this.removeNode(node.key, aux.key)
-        // const data = this.searchParentNode(aux.key);
-        // data.leftChild = null;
-        // aux.leftChild = node.leftChild;
-        // parentNode.leftChild = aux;
-        // node.rightChild   = null
-        // aux.rightChild  = data
+        node.data = aux.data;
+        node.rightChild = this.removeNode(node.rightChild, aux.key);
       }
     }
     return biNode;
@@ -151,12 +150,11 @@ export class BinaryTree {
   /* 遍历节点 */
   private traverLeftRightChildrenTree(biNode: Node, key: number): Node {
     if (
-      (biNode.leftChild && biNode.leftChild.key  === key) ||
+      (biNode.leftChild && biNode.leftChild.key === key) ||
       (biNode.rightChild && biNode.rightChild.key === key)
-    )
-    {
+    ) {
       return biNode;
-      }
+    }
     // 遍历右子树
     if (key > biNode.key && biNode.rightChild)
       return this.traverLeftRightChildrenTree(biNode.rightChild, key);
