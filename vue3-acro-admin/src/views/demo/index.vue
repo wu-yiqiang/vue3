@@ -19,7 +19,7 @@
     binTree.createBinaryTree(78, 'ppp');
     binTree.createBinaryTree(99, '就');
     binTree.createBinaryTree(2, '多福多寿方式');
-    console.log(binTree.removeTreeNode(34));
+    console.log(binTree.removeTreeNode(56));
   });
 </script>
 

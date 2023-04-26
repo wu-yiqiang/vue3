@@ -127,15 +127,23 @@ export class BinaryTree {
       }
       // 左右子树都存在
       if (node?.leftChild && node?.rightChild) {
-        //  判断删除的数据是在父节点的左边还是右边
-        console.log('asda', node.key)
-        // let isleft = false
-        // if (parentNode?.leftChild?.key === node.key) isleft = true
+        // 判断删除的数据是在父节点的左边还是右边
+        const nodeRightMinChildren = this.searchLeftChild(node.rightChild);
+        const nodeLeftChild = node.leftChild;
+        // node.key = nodeRightChildrenMin.key;
+        // node.data = aux.data;
+        // node.leftChild = nodeLeftChild
 
-        const aux = this.searchLeftChild(node.rightChild);
-        node.key = aux.key;
-        node.data = aux.data;
-        node.rightChild = this.removeNode(node.rightChild, aux.key);
+        // 寻找删除结点值的最小值的父节点
+        const rightNodeParent = this.searchParentNode(nodeRightMinChildren.key);
+        if (rightNodeParent?.leftChild?.key === nodeRightMinChildren?.key)
+          rightNodeParent.leftChild = null;
+        if (rightNodeParent?.rightChild?.key === nodeRightMinChildren?.key)
+          rightNodeParent.rightChild = null;
+        node.key = nodeRightMinChildren?.key;
+        node.data = nodeRightMinChildren?.data;
+        node.leftChild = nodeLeftChild;
+        // node.rightChild = this.removeNode(node.rightChild, aux.key);
       }
     }
     return biNode;
