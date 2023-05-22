@@ -1,4 +1,4 @@
-00000import { App } from 'vue'
+import { App } from 'vue'
 import {
   Button,
   Icon,

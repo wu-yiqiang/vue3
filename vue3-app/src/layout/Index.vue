@@ -33,5 +33,17 @@ const store = useAppStore()
   .fade-leave-to {
     opacity: 0;
   }
+  .NavBar {
+    position: fixed;
+    top: 0;
+  }
+  .t-main {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .Tabbar {
+    position: fixed;
+    bottom: 0;
+  }
 }
 </style>

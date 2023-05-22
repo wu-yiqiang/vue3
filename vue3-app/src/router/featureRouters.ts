@@ -1,9 +1,7 @@
 import Home from '/@/views/tabbar/Home.vue'
 import Category from '/@/views/tabbar/Category.vue'
 import User from '/@/views/tabbar/User.vue'
-import myApply from '/@/views/eHome/vpnApply/my-apply.vue'
-import applyNotice from '/@/views/eHome/vpnApply/apply-notice.vue'
-import myApplyLists from '/@/views/eHome/vpnApply/my-apply-lists.vue'
+import Scaner from '/@/views/scaner/index.vue'
 import theme from '/@/views/user/theme.vue'
 import language from '/@/views/user/language.vue'
 import setting from '/@/views/user/setting.vue'
@@ -36,28 +34,11 @@ export const featureRouters = [
     }
   },
   {
-    path: '/eHome/vpnApply/my-apply',
-    component: myApply,
+    path: '/scaner',
+    component: Scaner,
     meta: {
-      title: 'myApply.title',
-      icon: 'scan',
-      TabbarShow: true
-    }
-  },
-  {
-    path: '/eHome/vpnApply/apply-notice',
-    component: applyNotice,
-    meta: {
-      title: 'applyNotice.title',
-      icon: 'scan'
-    }
-  },
-  {
-    path: '/eHome/vpnApply/my-apply-lists',
-    component: myApplyLists,
-    meta: {
-      title: 'myApplyLists.title',
-      icon: 'scan',
+      title: '扫码',
+      icon: 'user-o',
       TabbarShow: true
     }
   },

@@ -7,8 +7,5 @@ import router from '/@/router/index'
 function goBack() {
   router.go(-1)
 }
-function goTo() {
-}
 </script>
-
 <style lang="scss" scoped></style>
