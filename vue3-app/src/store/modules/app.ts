@@ -8,6 +8,7 @@ type AppStateType = {
   theme?: string
   locale?: string
   tabbarShow?: boolean
+  navbarShow?: boolean
 }
 export const useAppStore = defineStore({
   id: 't-app',

@@ -30,6 +30,7 @@ const whiteList = ['/login']
 router.beforeEach((to, from, next) => {
   const title = (to.meta.title as string) || 'Vite App'
   const tabbarShow = (to.meta.TabbarShow as boolean) || false
+  const navbarShow = (to.meta.NavbarShow as boolean) || false
   document.title = t(title)
   const token = getToken()
   if (to.path === '/login' || whiteList.includes(to.path)) {
@@ -44,7 +45,7 @@ router.beforeEach((to, from, next) => {
       store.setState({ title })
       return next('/login')
     }
-    store.setState({ title, token, tabbarShow })
+    store.setState({ title, token, tabbarShow, navbarShow })
     next()
   }
 })

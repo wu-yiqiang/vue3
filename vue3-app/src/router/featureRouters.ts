@@ -12,7 +12,8 @@ export const featureRouters = [
     meta: {
       title: 'home.title',
       icon: 'home-o',
-      TabbarShow: true
+      TabbarShow: true,
+      NavbarShow: true
     }
   },
   {
@@ -21,7 +22,8 @@ export const featureRouters = [
     meta: {
       title: 'category.title',
       icon: 'qr',
-      TabbarShow: true
+      TabbarShow: true,
+      NavbarShow: true
     }
   },
   {
@@ -30,7 +32,8 @@ export const featureRouters = [
     meta: {
       title: 'user.title',
       icon: 'user-o',
-      TabbarShow: true
+      TabbarShow: true,
+      NavbarShow: true
     }
   },
   {
@@ -39,28 +42,32 @@ export const featureRouters = [
     meta: {
       title: '扫码',
       icon: 'user-o',
-      TabbarShow: true
+      TabbarShow: true,
+      NavbarShow: false
     }
   },
   {
     path: '/user/theme',
     component: theme,
     meta: {
-      title: 'theme.title'
+      title: 'theme.title',
+      NavbarShow: true
     }
   },
   {
     path: '/user/language',
     component: setting,
     meta: {
-      title: 'language.title'
+      title: 'language.title',
+      NavbarShow: true
     }
   },
   {
     path: '/user/setting',
     component: setting,
     meta: {
-      title: 'setting.title'
+      title: 'setting.title',
+      NavbarShow: true
     }
   }
 ]

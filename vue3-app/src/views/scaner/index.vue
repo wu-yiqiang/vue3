@@ -1,11 +1,22 @@
 <template>
   <div class="t-page">
+    <div class="logo-box">
+      <img src="../../assets/svg/qrcode.svg" alt="" />
+    </div>
     <div class="scan">
       <div class="qrcode"></div>
-
       <div class="border">
         <div id="reader"></div>
       </div>
+    </div>
+    <div class="about-box">
+      <img src="../../assets/svg/about.svg" alt="" />
+    </div>
+    <div class="history-box">
+      <img src="../../assets/svg/qrcode-language.svg" alt="" />
+    </div>
+    <div class="input-box">
+      <img src="../../assets/svg/qrcode.svg" alt="" />
     </div>
   </div>
 </template>
@@ -78,13 +89,48 @@ const stop = () => {
 </script>
 
 <style lang="scss" scoped>
+@mixin img-size {
+  img {
+    width: 35px;
+    height: 35px;
+  }
+}
 .t-page {
+  height: 100%;
   padding: 20px;
-  min-height: 100vh;
+  overflow: hidden;
   background: #111;
   display: grid;
   justify-content: center;
   align-items: center;
+  position: relative;
+  .logo-box {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    @include img-size();
+  }
+  .input-box {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    @include img-size();
+  }
+  .about-box {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  .history-box {
+    position: absolute;
+    left: 10px;
+    bottom: 300px;
+    @include img-size();
+  }
   .scan {
     position: relative;
     display: flex;

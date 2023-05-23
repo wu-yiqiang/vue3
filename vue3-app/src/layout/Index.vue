@@ -1,6 +1,6 @@
 <template>
   <div class="t-layout">
-    <NavBar :title="t(store.title as string)" />
+    <NavBar v-if="store.navbarShow as boolean" :title="t(store.title as string)" />
     <div class="t-main">
       <router-view v-slot="{ Component }">
         <keep-alive>
@@ -21,10 +21,13 @@ import Tabbar from './Tabbar.vue'
 import { useAppStore } from '/@/store'
 import { onMounted } from 'vue'
 const store = useAppStore()
+const tabbar = store.tabbarShow
+const navbar = store.navbarShow
 </script>
 
 <style lang="scss" scoped>
 .t-layout {
+  overflow: hidden;
   .fade-enter-active,
   .fade-leave-active {
     transition: opacity 0.5s ease;
@@ -33,15 +36,25 @@ const store = useAppStore()
   .fade-leave-to {
     opacity: 0;
   }
-  .NavBar {
-    position: fixed;
-    top: 0;
-  }
   .t-main {
     overflow-y: scroll;
     overflow-x: hidden;
+    /* margin-bottom: 50px; */
+    height: calc(100vh - 50px);
+    /* @if $isTabbar && $isNavbar {
+      height: calc(100vh - 50px - 46px);
+    }
+    @if $isTabbar {
+      height: calc(100vh - 50px);
+    }
+    @if $isTabbar {
+      height: calc(100vh - 46px);
+    } */
+    /* @if !$isTabbar && !$isNavbar {
+      height: 100vh;
+    } */
   }
-  .Tabbar {
+  .van-tabbar {
     position: fixed;
     bottom: 0;
   }
