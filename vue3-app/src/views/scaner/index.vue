@@ -9,14 +9,23 @@
         <div id="reader"></div>
       </div>
     </div>
-    <div class="about-box">
-      <img src="../../assets/svg/about.svg" alt="" />
+    <div class="light-box">
+      <img src="../../assets/svg/qrcode.svg" alt="" />
     </div>
-    <div class="history-box">
+    <div class="about-box">
+      <img src="../../assets/svg/qrcode-about.svg" alt="" />
+    </div>
+    <div class="convert-box">
+      <img src="../../assets/svg/OnlineConverter.svg" alt="" />
+    </div>
+    <div class="language-box">
       <img src="../../assets/svg/qrcode-language.svg" alt="" />
     </div>
+    <div class="history-box">
+      <img src="../../assets/svg/qrcode-history.svg" alt="" />
+    </div>
     <div class="input-box">
-      <img src="../../assets/svg/qrcode.svg" alt="" />
+      <img src="../../assets/svg/photo-camera.svg" alt="" />
     </div>
   </div>
 </template>
@@ -57,7 +66,7 @@ const start = () => {
     .start(
       { facingMode: 'environment' },
       {
-        fps: 10, // 设置每秒多少帧
+        fps: 90, // 设置每秒多少帧
         qrbox: { width: 400, height: 400 } // 设置取景范围
         // scannable, rest shaded.
       },
@@ -96,8 +105,8 @@ const stop = () => {
   }
 }
 .t-page {
-  height: 100%;
-  padding: 20px;
+  height: calc(100% - 50px);
+  // padding: 20px;
   overflow: hidden;
   background: #111;
   display: grid;
@@ -120,15 +129,28 @@ const stop = () => {
     position: absolute;
     left: 10px;
     bottom: 10px;
-    img {
-      width: 40px;
-      height: 40px;
-    }
+    @include img-size();
+  }
+  .light-box {
+    @include img-size();
+  }
+  .convert-box {
+    position: absolute;
+    right: 10px;
+    bottom: 150px;
+    @include img-size();
+  }
+  .language-box {
+    position: absolute;
+    left: 10px;
+    bottom: 150px;
+    @include img-size();
   }
   .history-box {
     position: absolute;
-    left: 10px;
-    bottom: 300px;
+    right: 50%;
+    bottom: 10px;
+    transform: translateX(50%);
     @include img-size();
   }
   .scan {
