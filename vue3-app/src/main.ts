@@ -12,8 +12,7 @@ const app = createApp(App)
 useI18n(app)
 setupVant(app)
 setupStore(app)
-app.use(router)
-
-router.isReady().then(() => {
-  app.mount('#app')
-})
+app.use(router).mount('#app')
+// router.isReady().then(() => {
+//   app.mount('#app')
+// })
