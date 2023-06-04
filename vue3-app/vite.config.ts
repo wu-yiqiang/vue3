@@ -7,7 +7,7 @@ import eslintPlugin from 'vite-plugin-eslint'
 import { resolve } from 'path'
 import { visualizer } from 'rollup-plugin-visualizer'
 import viteCompression from 'vite-plugin-compression'
-import legacyPlugin from '@vitejs/plugin-legacy'
+// import legacyPlugin from '@vitejs/plugin-legacy'
 // 路径查找
 const pathResolve = (dir: string): string => {
   return resolve(__dirname, '.', dir)
@@ -30,8 +30,8 @@ export default ({ command, mode }) => {
     },
     plugins: [
       vue(),
-      viteCompression(),
       visualizer(),
+      viteCompression(),
       styleImport({
         resolves: [VantResolve()],
         libs: [
@@ -43,10 +43,10 @@ export default ({ command, mode }) => {
         ]
       }),
       svgLoader(),
-      legacyPlugin({
-        targets: ['chrome 52'], // 需要兼容的目标列表，可以设置多个
-        additionalLegacyPolyfills: ['regenerator-runtime/runtime'] // 面向IE11时需要此插件
-      }),
+      // legacyPlugin({
+      //   targets: ['chrome 52'], // 需要兼容的目标列表，可以设置多个
+      //   additionalLegacyPolyfills: ['regenerator-runtime/runtime'] // 面向IE11时需要此插件
+      // }),
       createSvgIconsPlugin({
         // 指定需要缓存的图标文件夹
         iconDirs: [pathResolve('src/assets/svg')],
@@ -78,6 +78,26 @@ export default ({ command, mode }) => {
       }
     },
     build: {
+      // 最终构建的浏览器兼容目标
+      target: 'es2015',
+      // 是否自动注入module preload的polyfill
+      polyfillModulePreload: true,
+      // 指定混淆器
+      minify: 'esbuild',
+      // 启用css代码拆分
+      cssCodeSplit: true,
+      // 允许用户为css的压缩设置一个不同的浏览器target, 与build esbuild一致
+      cssTarget: '',
+      // 清空输入文件夹
+      emptyOutDir: true,
+      // 取消计算文件大小，加快打包速度
+      reportCompressedSize: false,
+      // 启用压缩大小报告,
+      // brotliSize: false,
+      // chunk大小警告的限制
+      chunkSizeWarningLimit: 500,
+      // 取消sourceMap， 加快打包速度,
+      sourcemap: false,
       rollupOptions: {
         output: {
           manualChunks: (id) => {
@@ -89,9 +109,13 @@ export default ({ command, mode }) => {
             if (id.includes('node_modules/vue')) return 'vue'
             // 对vant进行单独打包
             if (id.includes('node_modules/vant')) return 'vant'
-            // 对view中的文件进行单独打包
+            // 对views目录中的文件进行单独打包
             if (id.includes('src/views')) return 'views'
-          }
+            if (id.includes('node_modules'))
+              return id.toString().split('node_modules')[1].split('/')[0].toString()
+          },
+          entryFileNames: 'js/[name].hash.js',
+          chunkFileNames: 'js/[name].hash.js',
         }
       }
     }
