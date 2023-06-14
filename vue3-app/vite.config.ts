@@ -8,6 +8,7 @@ import { resolve } from 'path'
 import { visualizer } from 'rollup-plugin-visualizer'
 import viteCompression from 'vite-plugin-compression'
 // import legacyPlugin from '@vitejs/plugin-legacy'
+import copy from 'rollup-plugin-copy'
 // 路径查找
 const pathResolve = (dir: string): string => {
   return resolve(__dirname, '.', dir)
@@ -30,8 +31,23 @@ export default ({ command, mode }) => {
     },
     plugins: [
       vue(),
+      copy({
+        targets: [
+          { src: 'src/manifest.json', dest: 'dist' },
+          { src: 'src/assets', dest: 'dist' }
+        ],
+
+        hook: 'writeBundle'
+      }),
       visualizer(),
-      viteCompression(),
+      viteCompression({
+        verbose: true, // 是否在控制台中输出压缩结果
+        disable: true,
+        threshold: 10240, // 如果体积大于阈值，将被压缩，单位为b，体积过小时请不要压缩，以免适得其反
+        algorithm: 'gzip', // 压缩算法，可选['gzip'，' brotliccompress '，'deflate '，'deflateRaw']
+        ext: '.gz',
+        deleteOriginFile: true // 源文件压缩后是否删除(我为了看压缩后的效果，先选择了true)
+      }),
       styleImport({
         resolves: [VantResolve()],
         libs: [
@@ -64,7 +80,7 @@ export default ({ command, mode }) => {
     },
     server: {
       // 是否开启 https
-      https: true,
+      // https: true,
       hmr: true,
       // 端口号
       port: 3002,
@@ -99,6 +115,7 @@ export default ({ command, mode }) => {
       // 取消sourceMap， 加快打包速度,
       sourcemap: false,
       rollupOptions: {
+        input: ['index.html', 'src/background.ts', 'src/contentScript.ts'],
         output: {
           manualChunks: (id) => {
             // 对qrcode进行单独打包
@@ -115,7 +132,7 @@ export default ({ command, mode }) => {
               return id.toString().split('node_modules')[1].split('/')[0].toString()
           },
           entryFileNames: 'js/[name].hash.js',
-          chunkFileNames: 'js/[name].hash.js',
+          chunkFileNames: 'js/[name].hash.js'
         }
       }
     }

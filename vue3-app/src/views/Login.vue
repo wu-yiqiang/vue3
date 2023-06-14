@@ -1,5 +1,4 @@
 <template>
-  <NavBar :title="t('login')" />
   <div class="t-page">
     <div class="t-logo-box">
       <div class="t-logo">

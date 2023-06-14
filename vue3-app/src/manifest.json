@@ -1,0 +1,27 @@
+{
+
+    "name": "Scaner",
+
+    "version": "1.0",
+
+    "manifest_version": 3, 
+
+    "action": {
+
+        "default_icon": {
+
+            "16": "/assets/svg/qrcode.svg",
+
+            "48": "/assets/svg/qrcode.svg",
+
+            "128": "/assets/svg/qrcode.svg"
+
+        },
+
+        "default_title": "Popup",
+
+        "default_popup": "index.html"
+
+    }
+
+}

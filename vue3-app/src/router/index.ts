@@ -10,7 +10,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     component: Layout,
-    redirect: '/home',
+    redirect: '/scan',
     children: tabbar
   },
   {

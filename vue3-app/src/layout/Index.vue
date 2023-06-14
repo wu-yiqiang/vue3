@@ -28,14 +28,14 @@ const navbar = store.navbarShow
 <style lang="scss" scoped>
 .t-layout {
   overflow: hidden;
-  .fade-enter-active,
+  /* .fade-enter-active,
   .fade-leave-active {
     transition: opacity 0.5s ease;
   }
   .fade-enter-from,
   .fade-leave-to {
     opacity: 0;
-  }
+  } */
   .t-main {
     overflow-y: scroll;
     overflow-x: hidden;
