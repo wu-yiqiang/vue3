@@ -7,6 +7,8 @@ import eslintPlugin from 'vite-plugin-eslint'
 import { resolve } from 'path'
 import { visualizer } from 'rollup-plugin-visualizer'
 import viteCompression from 'vite-plugin-compression'
+
+import AutoImport from 'unplugin-auto-import/vite'
 // import legacyPlugin from '@vitejs/plugin-legacy'
 import copy from 'rollup-plugin-copy'
 // 路径查找
@@ -31,6 +33,9 @@ export default ({ command, mode }) => {
     },
     plugins: [
       vue(),
+      AutoImport({
+        imports: ['vue', 'vue-router']
+      }),
       copy({
         targets: [
           { src: 'src/manifest.json', dest: 'dist' },

@@ -1,9 +1,15 @@
 <template>
-  <div class="t-page">{{ t('category.title') }}</div>
+  <div class="t-page">
+    <VirtualScroll />
+  </div>
 </template>
 
 <script setup lang="ts">
-import { t } from '/@/plugins/i18n'
+import VirtualScroll from '/@/views/components/VirtualScroll.vue'
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.t-page {
+  height: 100%;
+}
+</style>
