@@ -137,12 +137,12 @@ export default ({ command, mode }) => {
               return id.toString().split('node_modules')[1].split('/')[0].toString()
           },
           entryFileNames: 'js/[name].hash.js',
-          chunkFileNames: 'js/[name].hash.js'
-          // assetFileNames: (assetInfo) => {
-          //   const fileName = assetInfo.name
-          //   if (fileName?.endsWith('.svg')) return 'img/svg/[name]-[hash][extname]'
-          //   return 'css/[name]-[hash][extname]'
-          // }
+          chunkFileNames: 'js/[name].hash.js',
+          assetFileNames: (assetInfo) => {
+            const fileName = assetInfo.name
+            if (fileName?.endsWith('.svg')) return 'img/svg/[name]-[hash][extname]'
+            return 'css/[name]-[hash][extname]'
+          }
         }
       }
     }
