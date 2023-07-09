@@ -131,8 +131,8 @@ export default ({ command, mode }) => {
             // if (id.includes('node_modules/vue')) return 'vue'
             // // 对vant进行单独打包
             // if (id.includes('node_modules/vant')) return 'vant'
-            // // 对views目录中的文件进行单独打包
-            // if (id.includes('src/views')) return 'views'
+            // 对views目录中的文件进行单独打包
+            if (id.includes('src/views')) return 'views'
             if (id.includes('node_modules'))
               return id.toString().split('node_modules')[1].split('/')[0].toString()
           },
