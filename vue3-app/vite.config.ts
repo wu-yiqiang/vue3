@@ -36,14 +36,14 @@ export default ({ command, mode }) => {
       AutoImport({
         imports: ['vue', 'vue-router']
       }),
-      copy({
-        targets: [
-          { src: 'src/manifest.json', dest: 'dist' },
-          { src: 'src/assets', dest: 'dist' }
-        ],
+      // copy({
+      //   targets: [
+      //     { src: 'src/manifest.json', dest: 'dist' },
+      //     { src: 'src/assets', dest: 'dist' }
+      //   ],
 
-        hook: 'writeBundle'
-      }),
+      //   hook: 'writeBundle'
+      // }),
       visualizer(),
       viteCompression({
         verbose: true, // 是否在控制台中输出压缩结果
