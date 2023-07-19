@@ -57,7 +57,7 @@ async function handleLogin() {
 
   const token = 'T-APP-TOKEN'
   setToken(token)
-  router.replace('/')
+  router.push('/')
   user.username = ''
   user.password = ''
 }

@@ -43,7 +43,8 @@ router.beforeEach((to, from, next) => {
     const store = useAppStore()
     if (!token) {
       store.setState({ title })
-      return next('/login')
+      return next()
+      // return next('/login')
     }
     store.setState({ title, token, tabbarShow, navbarShow })
     next()

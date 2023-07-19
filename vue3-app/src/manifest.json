@@ -9,13 +9,9 @@
     "action": {
 
         "default_icon": {
-
             "16": "/assets/svg/qrcode.svg",
-
             "48": "/assets/svg/qrcode.svg",
-
             "128": "/assets/svg/qrcode.svg"
-
         },
 
         "default_title": "Scaner",

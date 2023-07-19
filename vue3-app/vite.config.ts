@@ -27,7 +27,7 @@ export default ({ command, mode }) => {
   const { VITE_APP_BASE_API } = loadEnv(mode, process.cwd())
   return defineConfig({
     resolve: { alias },
-    base: mode === 'production' ? './' : '/',
+    base: './',
     esbuild: {
       drop: mode === 'production' ? ['console', 'debugger'] : []
     },
