@@ -7,7 +7,7 @@ import eslintPlugin from 'vite-plugin-eslint'
 import { resolve } from 'path'
 import { visualizer } from 'rollup-plugin-visualizer'
 import viteCompression from 'vite-plugin-compression'
-
+import VueDevTools from 'vite-plugin-vue-devtools'
 import AutoImport from 'unplugin-auto-import/vite'
 // import legacyPlugin from '@vitejs/plugin-legacy'
 import copy from 'rollup-plugin-copy'
@@ -32,6 +32,7 @@ export default ({ command, mode }) => {
       drop: mode === 'production' ? ['console', 'debugger'] : []
     },
     plugins: [
+      VueDevTools(),
       vue(),
       AutoImport({
         imports: ['vue', 'vue-router']
