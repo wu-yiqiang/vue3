@@ -1,0 +1,121 @@
+{
+  "id": "2673625",
+  "name": "NOME",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "653953",
+      "name": "购物车",
+      "font_class": "gouwuche",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "738236",
+      "name": "首页",
+      "font_class": "shouye",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "838835",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "974778",
+      "name": "7天退换",
+      "font_class": "7tiantuihuan",
+      "unicode": "e691",
+      "unicode_decimal": 59025
+    },
+    {
+      "icon_id": "1212184",
+      "name": "待收货",
+      "font_class": "daishouhuo",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "1212411",
+      "name": "退换货",
+      "font_class": "tuihuanhuo",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
+      "icon_id": "1287691",
+      "name": "待发货",
+      "font_class": "daifahuo",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "5121526",
+      "name": "消息",
+      "font_class": "xiaoxi",
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    },
+    {
+      "icon_id": "6364167",
+      "name": "二维码",
+      "font_class": "ico",
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
+      "icon_id": "7286850",
+      "name": "待付款",
+      "font_class": "daifukuan",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "7550273",
+      "name": "我的",
+      "font_class": "wode",
+      "unicode": "e69a",
+      "unicode_decimal": 59034
+    },
+    {
+      "icon_id": "9029219",
+      "name": "已完成",
+      "font_class": "yiwancheng",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
+      "icon_id": "14110332",
+      "name": "我的",
+      "font_class": "wode1",
+      "unicode": "e6c2",
+      "unicode_decimal": 59074
+    },
+    {
+      "icon_id": "14656461",
+      "name": "品牌设计",
+      "font_class": "pinpaisheji",
+      "unicode": "e73f",
+      "unicode_decimal": 59199
+    },
+    {
+      "icon_id": "18117276",
+      "name": "013-包邮",
+      "font_class": "013-baoyou",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "18166279",
+      "name": "手提包,购物袋,应用商店,购物商店,手提袋",
+      "font_class": "handbag",
+      "unicode": "e8bb",
+      "unicode_decimal": 59579
+    }
+  ]
+}

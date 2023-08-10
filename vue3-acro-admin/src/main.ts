@@ -12,7 +12,7 @@ import App from './App.vue';
 import '@arco-design/web-vue/dist/arco.css';
 import '@/assets/style/global.less';
 import '@/api/interceptor';
-
+import Track from './track'
 // const up = new Updater({
 //   timer: 2000,
 // });
@@ -27,7 +27,7 @@ import '@/api/interceptor';
 //   alert('文件更新');
 // });
 const app = createApp(App);
-
+app.use(new Track() as any);
 app.use(ArcoVue, {});
 app.use(ArcoVueIcon);
 

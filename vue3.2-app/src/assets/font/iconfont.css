@@ -1,0 +1,79 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 2673625 */
+  src: url('iconfont.woff2?t=1631693581345') format('woff2'),
+       url('iconfont.woff?t=1631693581345') format('woff'),
+       url('iconfont.ttf?t=1631693581345') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-gouwuche:before {
+  content: "\e602";
+}
+
+.icon-shouye:before {
+  content: "\e626";
+}
+
+.icon-sousuo:before {
+  content: "\e62b";
+}
+
+.icon-7tiantuihuan:before {
+  content: "\e691";
+}
+
+.icon-daishouhuo:before {
+  content: "\e622";
+}
+
+.icon-tuihuanhuo:before {
+  content: "\e629";
+}
+
+.icon-daifahuo:before {
+  content: "\e605";
+}
+
+.icon-xiaoxi:before {
+  content: "\e64d";
+}
+
+.icon-ico:before {
+  content: "\e646";
+}
+
+.icon-daifukuan:before {
+  content: "\e620";
+}
+
+.icon-wode:before {
+  content: "\e69a";
+}
+
+.icon-yiwancheng:before {
+  content: "\e63f";
+}
+
+.icon-wode1:before {
+  content: "\e6c2";
+}
+
+.icon-pinpaisheji:before {
+  content: "\e73f";
+}
+
+.icon-013-baoyou:before {
+  content: "\e60b";
+}
+
+.icon-handbag:before {
+  content: "\e8bb";
+}
+
