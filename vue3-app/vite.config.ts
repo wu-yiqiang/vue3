@@ -9,6 +9,7 @@ import { visualizer } from 'rollup-plugin-visualizer'
 import viteCompression from 'vite-plugin-compression'
 import VueDevTools from 'vite-plugin-vue-devtools'
 import AutoImport from 'unplugin-auto-import/vite'
+import viteImagemin from 'vite-plugin-imagemin'
 // import legacyPlugin from '@vitejs/plugin-legacy'
 import copy from 'rollup-plugin-copy'
 // 路径查找
@@ -75,7 +76,35 @@ export default ({ command, mode }) => {
         // 指定symbolId格式
         symbolId: 'icon-[dir]-[name]'
       }),
-      eslintPlugin()
+      eslintPlugin(),
+      // 图片压缩
+      viteImagemin({
+        gifsicle: {
+          optimizationLevel: 7,
+          interlaced: false
+        },
+        optipng: {
+          optimizationLevel: 7
+        },
+        mozjpeg: {
+          quality: 20
+        },
+        pngquant: {
+          quality: [0.8, 0.9],
+          speed: 4
+        },
+        svgo: {
+          plugins: [
+            {
+              name: 'removeViewBox'
+            },
+            {
+              name: 'removeEmptyAttrs',
+              active: false
+            }
+          ]
+        }
+      })
     ],
     css: {
       preprocessorOptions: {
@@ -134,6 +163,7 @@ export default ({ command, mode }) => {
             // if (id.includes('node_modules/vant')) return 'vant'
             // 对views目录中的文件进行单独打包
             if (id.includes('src/views')) return 'views'
+            // 让每个插件都打包成独立的文件
             if (id.includes('node_modules'))
               return id.toString().split('node_modules')[1].split('/')[0].toString()
           },

@@ -25,6 +25,7 @@ import { t } from '/@/plugins/i18n'
 import SvgIcon from '/@/components/SvgIcon.vue'
 import { Dialog, Toast } from 'vant'
 import { useAppStore } from '/@/store'
+import { onMounted, isRef, unref } from 'vue'
 
 const store = useAppStore()
 const list = ref([
@@ -51,6 +52,10 @@ function handleItemClick(item: any) {
 function handleOpen() {
   Dialog({ message: t('home.reminder') })
 }
+const ll = ref(12)
+onMounted(() => {
+  console.log('sda', unref(ll))
+})
 </script>
 
 <style lang="scss" scoped>
