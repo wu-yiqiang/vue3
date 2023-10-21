@@ -9,7 +9,7 @@ import { visualizer } from 'rollup-plugin-visualizer'
 import viteCompression from 'vite-plugin-compression'
 import VueDevTools from 'vite-plugin-vue-devtools'
 import AutoImport from 'unplugin-auto-import/vite'
-import viteImagemin from 'vite-plugin-imagemin'
+// import viteImagemin from 'vite-plugin-imagemin'
 // import legacyPlugin from '@vitejs/plugin-legacy'
 import copy from 'rollup-plugin-copy'
 // 路径查找
@@ -78,33 +78,33 @@ export default ({ command, mode }) => {
       }),
       eslintPlugin(),
       // 图片压缩
-      viteImagemin({
-        gifsicle: {
-          optimizationLevel: 7,
-          interlaced: false
-        },
-        optipng: {
-          optimizationLevel: 7
-        },
-        mozjpeg: {
-          quality: 20
-        },
-        pngquant: {
-          quality: [0.8, 0.9],
-          speed: 4
-        },
-        svgo: {
-          plugins: [
-            {
-              name: 'removeViewBox'
-            },
-            {
-              name: 'removeEmptyAttrs',
-              active: false
-            }
-          ]
-        }
-      })
+      // viteImagemin({
+      //   gifsicle: {
+      //     optimizationLevel: 7,
+      //     interlaced: false
+      //   },
+      //   optipng: {
+      //     optimizationLevel: 7
+      //   },
+      //   mozjpeg: {
+      //     quality: 20
+      //   },
+      //   pngquant: {
+      //     quality: [0.8, 0.9],
+      //     speed: 4
+      //   },
+      //   svgo: {
+      //     plugins: [
+      //       {
+      //         name: 'removeViewBox'
+      //       },
+      //       {
+      //         name: 'removeEmptyAttrs',
+      //         active: false
+      //       }
+      //     ]
+      //   }
+      // })
     ],
     css: {
       preprocessorOptions: {
