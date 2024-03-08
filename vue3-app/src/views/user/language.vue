@@ -1,5 +1,5 @@
 <template>
-  <section class="language">多asdasada语言</section>
+  <section class="language">多语言</section>
 </template>
 <script lang="ts" setup>
 import { reactive, watch, computed, ref } from 'vue'

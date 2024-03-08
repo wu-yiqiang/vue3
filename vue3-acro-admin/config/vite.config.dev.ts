@@ -14,10 +14,11 @@ export default mergeConfig(
       host: '0.0.0.0',
       // 本地跨域代理
       proxy: {
-        // '/api/v1': {
-        //   target: VITE_APP_BASE_API,
-        //   changeOrigin: true
-        // }
+        '/api': {
+          target: 'http://127.0.0.1:9527',
+          rewrite: (path) => path.replace(/^\/api/, ''),
+          changeOrigin: true,
+        },
       },
       fs: {
         strict: true,

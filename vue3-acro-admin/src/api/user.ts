@@ -25,3 +25,8 @@ export function getUserInfo() {
 export function getMenuList() {
   return axios.post<RouteRecordNormalized[]>('/api/user/menu');
 }
+
+
+export function updateAvator(params: FormData, config: Object) {
+  return axios.post('http://127.0.0.1:9527/admin/avator', params, config);
+}

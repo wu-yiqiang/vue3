@@ -1,6 +1,6 @@
 let SDK = null // EasyAgentSDK 实例对象
 const QUEUE = [] // 任务队列
-cosnt NOOP = (v) => v
+const NOOP = (v) => v
 
 // 通过 web-vitals 页面性能指标
 const reportWebVitals = (onPerfEntry) => {

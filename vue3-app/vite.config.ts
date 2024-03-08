@@ -23,7 +23,7 @@ const alias: Record<string, string> = {
   '@': pathResolve('src'),
   '@build': pathResolve('build')
 }
-// https://vitejs.dev/config/
+
 export default ({ command, mode }) => {
   const { VITE_APP_BASE_API } = loadEnv(mode, process.cwd())
   return defineConfig({
@@ -49,7 +49,7 @@ export default ({ command, mode }) => {
       visualizer(),
       viteCompression({
         verbose: true, // 是否在控制台中输出压缩结果
-        disable: true,
+        disable: false,
         threshold: 10240, // 如果体积大于阈值，将被压缩，单位为b，体积过小时请不要压缩，以免适得其反
         algorithm: 'gzip', // 压缩算法，可选['gzip'，' brotliccompress '，'deflate '，'deflateRaw']
         ext: '.gz',

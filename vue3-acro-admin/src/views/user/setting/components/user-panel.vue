@@ -1,5 +1,6 @@
 <template>
   <a-card :bordered="false">
+    <img src="https://imgg-go.oss-cn-beijing.aliyuncs.com/.%2Fstorage%2Ffiles%2Fimage1699865584719-cmpr.jpg?Expires=1709905664&OSSAccessKeyId=LTAI5tPaFWokrKh9xxdgeefQ&Signature=zdK5tDvZ5jdQXqVSOzOc1EqY0lU%3D&x-oss-process=image%2Fformat%2Cpng" alt="">
     <a-space :size="54">
       <a-upload
         :custom-request="customRequest"
@@ -57,7 +58,8 @@
     RequestOption,
   } from '@arco-design/web-vue/es/upload/interfaces';
   import { useUserStore } from '@/store';
-  import { userUploadApi } from '@/api/user-center';
+import { userUploadApi } from '@/api/user-center';
+  import {updateAvator} from '@/api/user'
   import type { DescData } from '@arco-design/web-vue/es/descriptions/interface';
 
   const userStore = useUserStore();
@@ -89,8 +91,17 @@
     },
   ] as DescData[];
   const fileList = ref<FileItem[]>([file]);
-  const uploadChange = (fileItemList: FileItem[], fileItem: FileItem) => {
-    fileList.value = [fileItem];
+  const uploadChange =  async (fileItemList: FileItem[], fileItem: FileItem) => {
+    // fileList.value = [fileItem];
+    // 本地上传
+    const img = fileItem.file;
+    const param = new FormData();
+    param.append('file', img as any);
+    let config = {
+          headers:{'Content-Type':'multipart/form-data'} //这里是重点，需要和后台沟通好请求头，Content-Type不一定是这个值
+        }; //添加请求头
+    const { data } = await updateAvator(param, config)
+    file.url = data.url
   };
   const customRequest = (options: RequestOption) => {
     // docs: https://axios-http.com/docs/cancellation
