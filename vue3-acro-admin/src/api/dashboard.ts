@@ -20,3 +20,4 @@ export interface PopularRecord {
 export function queryPopularList(params: { type: string }) {
   return axios.get<TableData[]>('/api/popular/list', { params });
 }
+

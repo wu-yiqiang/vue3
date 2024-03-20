@@ -14,12 +14,10 @@ const fileChunkList = ref([]);
 // 文件变化
 const fileChange = async (event) => {
   const [file] = event.target.files;
-  console.log('ada', event.target.files)
   if (!file) return;
   currFile.value = file;
   fileChunkList.value = [];
   let { fileHash } = await getFileChunk(file);
-  console.log('哎。。。', fileHash)
   uploadChunks(fileHash);
 }
 
@@ -27,16 +25,16 @@ const fileChange = async (event) => {
 const uploadChunks = (fileHash) => {
   const requests = fileChunkList.value.map((item, index) => {
     const formData = new FormData();
-    formData.append(`${currFile.value.name}-${fileHash}-${index}`, item.chunk);
-    formData.append("filename", currFile.value.name);
+    formData.append("file", item.chunk);
+    formData.append("file_name", currFile.value.name);
     formData.append("hash", `${fileHash}-${index}`);
-    formData.append("fileHash", fileHash);
-    return uploadFile('/upload', formData, onUploadProgress(item));
+    formData.append("file_hash", fileHash);
+    return uploadFile('/file/upload', formData, onUploadProgress(item));
   });
 
   Promise.all(requests).then(() => {
     // 合并请求
-    mergeChunks('/mergeChunks', { size: DefualtChunkSize, filename: currFile.value.name });
+    mergeChunks('/file/mergechunks', { size: DefualtChunkSize, filename: currFile.value.name });
   });
 }
 
@@ -77,7 +75,6 @@ const getFileChunk = (file, chunkSize = DefualtChunkSize) => {
       fileChunkList.value.push({ chunk, size: chunk.size, name: currFile.value.name });
       
       fileReader.readAsArrayBuffer(chunk);
-      console.log('你大爷的')
     }
 
     loadNext();

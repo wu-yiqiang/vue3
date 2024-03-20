@@ -7,18 +7,18 @@ const DEMO: AppRouteRecordRaw = {
   name: 'Demo',
   component: DEFAULT_LAYOUT,
   meta: {
-    locale: 'menu.faq',
+    locale: 'menu.demo',
     icon: 'icon-question-circle',
     requiresAuth: true,
     order: 10,
   },
   children: [
     {
-      path: 'demo1',
-      name: 'Demo1',
-      component: () => import('@/views/demo/index.vue'),
+      path: 'upload',
+      name: 'upload',
+      component: () => import('@/views/demo/upload/index.vue'),
       meta: {
-        locale: 'menu.list.cardList',
+        locale: '上传',
         requiresAuth: true,
         roles: ['*'],
       },

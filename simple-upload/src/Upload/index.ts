@@ -30,6 +30,7 @@ export class Upload implements UploadModel {
   transTotalFiles(): object {
     throw new Error('Method not implemented.')
   }
+  
   // 获取文件分块
   getFileChunk(file: object): Promise {
     return new Promise<void>((resolve: any, reject: any) => {
