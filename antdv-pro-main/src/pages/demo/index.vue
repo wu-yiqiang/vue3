@@ -16,7 +16,7 @@
       </a-button>
     </template>
     <template #searchOptRight>
-      <a-button type="primary":size="default">
+      <a-button type="primary" :size="default">
         <template #icon>
           <DownloadOutlined />
         </template>
@@ -24,17 +24,18 @@
       </a-button>
     </template>
     <template #matainer="{ row }">
-      {{ row }}
-      <!-- <a-tooltip placement="bottom">
+      <a-tooltip placement="bottom" >
         <span>{{
           row.matainer ? `${row.matainer.split(',')[0]}...` : '--'
-          }}</span>
-        <div v-if="row.matainer" slot="content">
-          <div v-for="(user, index) in row.matainer.split(',')" :key="index">
-            {{ user }}
+        }}</span>
+        <template #title>
+          <div v-if="row.matainer" slot="content">
+            <div v-for="(user, index) in row.matainer.split(',')" :key="index">
+              {{ user }}
+            </div>
           </div>
-        </div>
-      </a-tooltip> -->
+        </template>
+      </a-tooltip>
     </template>
   </Table>
 </template>
@@ -49,23 +50,23 @@ let pages = ref<object>({ pageSize: 10, pageNumer: 1, total: 134 });
 let list = ref<object>([]);
 let loading = ref<boolean>(false);
 const columns = ref<object>([
-  { key: 'app', title: '应用名', name: 'app', dataIndex: 'app', width: 150 },
-  { key: 'sn', title: 'SN号', name: 'sn', dataIndex: 'sn',width: 220 },
-  { key: 'deviceId', title: '设备号', name: 'deviceId',dataIndex: 'deviceId', width: 150 },
-  { key: 'belongMonth', title: '所属月度', name: 'belongMonth',dataIndex: 'belongMonth', width: 150 },
-  { key: 'belongEnv', title: '月度环境', name: 'belongEnv',dataIndex: 'belongEnv', width: 150 },
-  { key: 'belongEnvs', title: '环境区分', name: 'belongEnvs',dataIndex: 'belongEnvs', width: 150 },
-  { key: 'envType', title: '环境类型', name: 'envType',dataIndex: 'envType', width: 150 },
-  { key: 'pass', title: '宿主机容器', name: 'pass',dataIndex: 'pass', width: 200 },
-  { key: 'base', title: '所属研发部', name: 'base', dataIndex: 'base',width: 200 },
-  { key: 'dept', title: '责任部门', name: 'dept', dataIndex: 'dept',width: 150 },
-  { slot: 'matainer', title: '运维人员', name: 'matainer',dataIndex: 'matainer', width: 180 },
-  { key: 'dutyer', title: '责任人', name: 'dutyer', dataIndex: 'dutyer',width: 150 },
-  { key: 'level', title: '运维等级', name: 'level',dataIndex: 'level', width: 150 },
-  { key: 'date', title: '投产日期', name: 'date',dataIndex: 'date', width: 150 },
-  { slot: 'opts', title: '操作', name: 'opts' ,dataIndex: 'opts', width: 300 }
+  { key: 'app', title: '应用名', name: 'app', dataIndex: 'app', align: 'center', width: 180 },
+  { key: 'sn', title: 'SN号', name: 'sn', dataIndex: 'sn', align: 'center', width: 300 },
+  { key: 'deviceId', title: '设备号', name: 'deviceId', dataIndex: 'deviceId', align: 'center' },
+  { key: 'belongMonth', title: '所属月度', name: 'belongMonth', dataIndex: 'belongMonth', align: 'center'},
+  { key: 'belongEnv', title: '月度环境', name: 'belongEnv', dataIndex: 'belongEnv', align: 'center' },
+  { key: 'belongEnvs', title: '环境区分', name: 'belongEnvs', dataIndex: 'belongEnvs', align: 'center' },
+  { key: 'envType', title: '环境类型', name: 'envType', dataIndex: 'envType', align: 'center' },
+  { key: 'pass', title: '宿主机容器', name: 'pass', dataIndex: 'pass', align: 'center' },
+  { key: 'base', title: '所属研发部', name: 'base', dataIndex: 'base', align: 'center' },
+  { key: 'dept', title: '责任部门', name: 'dept', dataIndex: 'dept', align: 'center' },
+  { slot: 'matainer', title: '运维人员', name: 'matainer', dataIndex: 'matainer', align: 'center'},
+  { key: 'dutyer', title: '责任人', name: 'dutyer', dataIndex: 'dutyer', align: 'center' },
+  { key: 'level', title: '运维等级', name: 'level', dataIndex: 'level', align: 'center' },
+  { key: 'date', title: '投产日期', name: 'date', dataIndex: 'date', align: 'center' },
+  { slot: 'opt', title: '操作', name: 'opt', dataIndex: 'opt', align: 'center' }
 ]);
-const handleSearch = () => {
+const handleSearch = ({ searchForm, pager }) => {
   const item1 = {
     sn: 'SER-201549625265266',
     deviceId: Math.random() * 10000000,
@@ -117,60 +118,8 @@ const handleSearch = () => {
   [item1, item2, item3].forEach((item) => {
     list.value.push(item)
   });
+  console.log('search', searchForm, pager)
 }
-// const handleSearch = ({ searchForm: any, pager: any }) => {
-//   // console.log('asa', searchForm, pager, this.$refs.Table.getSearchParams());
-//   // this.loading = true;
-//   const item1 = {
-//     sn: 'SER-201549625265266',
-//     deviceId: Math.random() * 10000000,
-//     app: 'F-OSP',
-//     belongMonth: '20221123',
-//     belongEnv: '功能环境',
-//     belongEnvs: '正常',
-//     envType: '功能环境D',
-//     pass: '华为云',
-//     base: '珠海',
-//     dept: '系统二部',
-//     level: 'A',
-//     matainer: '***【000568789】,***【000568786】,***【000568787】',
-//     dutyer: '***【555098898】',
-//     date: '2023-06-23',
-//   };
-//   const item2 = {
-//     sn: 'SER-201549621265267',
-//     deviceId: Math.random() * 10000000,
-//     app: 'F-AAM',
-//     belongMonth: '20221906',
-//     belongEnv: '回装环境',
-//     belongEnvs: '灵活',
-//     envType: '功能环境B',
-//     pass: 'MYSQL',
-//     base: '成都',
-//     dept: '开发三部',
-//     level: 'D',
-//     matainer: '***【000568789】,***【000568786】,***【000568787】',
-//     dutyer: '***【555098898】',
-//     date: '2022-06-23',
-//   };
-//   const item3 = {
-//     sn: 'SER-201549621265267',
-//     deviceId: Math.random() * 10000000,
-//     app: 'F-AAM',
-//     belongMonth: '20221906',
-//     belongEnv: '回装环境',
-//     belongEnvs: '灵活',
-//     envType: '功能环境B',
-//     pass: 'MYSQL',
-//     base: '成都',
-//     dept: '开发四部',
-//     level: 'B',
-//     matainer: null,
-//     dutyer: '***【555098898】',
-//     date: '2022-06-23',
-//   };
-//   list.value = [item1, item2, item3];
-// };
 const remoteMethod = () => {
   console.log('输入选择');
 };
@@ -513,5 +462,4 @@ let searchOptions = ref([
 ]);
 </script>
 
-<style lang="less" scoped>
-</style>
+<style lang="less" scoped></style>

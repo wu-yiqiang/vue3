@@ -4,7 +4,6 @@
       <div class="opts1">
         <TableFormItem :opts="opts1" :search-form="searchForm" />
       </div>
-      <!-- <TableFormItem v-if="opts.length" :opts="opts" :search-form="searchForm" /> -->
       <div v-if="opts.length" :class="foldState ? 'opts unfold' : 'opts fold'">
         <TableFormItem  :opts="opts" :search-form="searchForm" />
       </div>
@@ -41,46 +40,13 @@
         </div>
       </div>
       <a-table :dataSource="tableDatas" :columns="columns" style="width: 100%">
-        <!-- <a-table-column
-          v-for="(column, index) in columnLists"
-          :key="index"
-          :type="column.type"
-          :prop="column.prop"
-          :width="column.width"
-          :label="column.label"
-        >
-          <template slot-scope="{ row }">
-            <slot
-              v-if="column.slot && column.slot !== 'opt'"
-              :name="column.slot"
-              :row="row"
-            />
-            <slot v-if="column.slot && column.slot === 'opt'" :name="'opt'">
-              <a-button
-                type="primary"
-                size="mini"
-                icon="a-icon-edit"
-                @click="handleEditor(row)"
-                >编辑</a-button
-              >
-              <a-button
-                type="danger"
-                size="mini"
-                icon="a-icon-delete"
-                @click="handleDelete(row)"
-                >删除</a-button
-              >
-            </slot>
-            <span v-if="!column.slot">{{ row[column.prop] }}</span>
-          </template>
-</a-table-column> -->
-        <template #bodyCell="{ column }">
-          <slot v-if="column.slot && column.slot !== 'opt'" :name="column.slot" :row="row" />
+        <template #bodyCell="{ column, record }">
+          <slot v-if="column.slot && column.slot !== 'opt'" :name="column.slot" :row="record" />
           <slot v-if="column.slot && column.slot === 'opt'" :name="'opt'">
-            <a-button type="primary" size="mini" @click="handleEditor(row)">编辑</a-button>
-            <a-button type="danger" size="mini" @click="handleDelete(row)">删除</a-button>
+            <a-button type="primary" size="mini" @click="handleEditor(record)">编辑</a-button>
+            <a-button type="" size="mini" @click="handleDelete(record)">删除</a-button>
           </slot>
-          <!-- <span v-if="!column.slot">{{ row[column.prop] }}</span> -->
+          <!-- <span v-if="!column.slot">{{ [column.prop] }}</span> -->
         </template>
       </a-table>
       <Pagenation v-if="tableDatas.length" :pages="page" @pager-change="handlePager" />
@@ -152,7 +118,6 @@ const init = () => {
 };
 onMounted(() => {
   init();
-  console.log('tableDatas', props.tableDatas)
 });
 const isDisplay = (index) => {
   if (props.defaultFoldNum === index) return true;
